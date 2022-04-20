@@ -1,23 +1,341 @@
-#header {
-    height: 100px;
-    background-color: green;
+*{
+	margin: 0;
+	padding: 0;
 }
 
-#intro {
-    height: 180px;
-    margin: auto;
-    padding: 10px;
-    width: 80%;
+
+.grid { /*for mobile screens */
+	display: grid;
+	grid-template-columns: auto;
+	grid-gap:5px;
+	grid-template-areas: 
+	"title"
+/*	"header header"		*/
+	"sidebar"
+	"content"
+/*	"footer footer";		*/
+/*	padding-top:5px;	*/
+/*	padding-bottom:5px;	*/
 }
 
-#intro1 {
-    background-color: pink;
-    height:100%;
-    border-radius: 5px;
+.title {
+	grid-area: title;
+	background-color: rgba(64, 224, 208, 1);
+	color: white;
+	font-family:'Oswald', sans-serif;
 }
 
-#intro2 {
-    background-color: grey;
-    height:100%;
-    border-radius: 5px;
+.header {
+	grid-area: header;		
+/*	background-color: rgba(0, 0, 40, 0.6); 	*/
+	padding-top:10px;
+	padding-bottom: 20px;
+	padding-left:20px;
+	padding-right:20px;
+	font-family:'Open Sans', sans-serif;
+	width:100%;
+	position:absolute;
 }
+
+h1 {
+	font-family:'Oswald', sans-serif;
+	padding-bottom: 0px;
+}
+
+.sidebar {
+	grid-area: sidebar;
+	background-color: rgba(255, 255, 255, 0);
+/*	border-right: 3px solid rgba(255, 83, 66, 1);	*/
+	padding-top:10px;
+	padding-right: 2em;
+	white-space: nowrap;
+/*	border-radius:15px;	*/
+	font-family:'Oswald', sans-serif;
+	font-size: 20px;
+	color: rgba(64, 224, 208, 1);
+}
+
+.content {
+	border-radius:15px;
+	grid-area: content;
+/*	background-color: rgba(127, 127, 127, 0.6);	*/
+	padding:5px;	
+	padding-top: 20px;
+	padding-bottom: 20px;
+/*	grid within the content: */
+	display: grid;
+	grid-template-columns: 100%;
+
+	grid-gap: 10px;
+	grid-template-areas: 
+	"contentheader"
+	"about"
+	"services"
+	"contact"
+	"booking";
+	font-family:'Open Sans', sans-serif;
+	color: #A88B80;
+}
+
+.footer {
+	text-align:center;
+	background-color: rgba(64, 224, 208, 1);
+	padding:5px;
+	color: white;
+	position:fixed;
+	bottom:0px;
+	left: 0px;
+	width:100%;
+}
+
+
+@media screen and (min-width: 750px)
+{
+	/* insert desktop grid code here */
+.grid {
+	display: grid;
+	grid-template-columns: auto auto;
+	grid-gap: 5px;
+	grid-template-areas: 
+	"title title"
+	"header header" 
+   "sidebar sidebar"
+	"content content"
+	"footer footer";
+}
+  .sidebar {
+    border-bottom-style: solid;
+    border-width: 5px;
+    border-color: rgba(64, 224, 208,0.5);
+	padding-bottom: 20px;
+	white-space: nowrap;
+  }
+  
+  ul#sidebar-content li {
+	list-style-type:none;
+	padding: 0px;
+	width: 12rem;
+	margin:auto;
+	display:block;
+	float:right;
+  	text-align: right;
+	 white-space: nowrap;
+}
+}
+
+@media screen and (max-width: 750px) { /*mobile screens */
+	.title{ 
+		padding-left: 5%;
+ 	}
+ 	.header{ 
+ 		padding-left: 5%; 
+ 	}
+ 	.sidebar {
+		border-bottom-style: solid;
+		border-width: 5px;
+		border-color: rgba(64, 224, 208,0.5);
+		padding-bottom: 20px;
+    	line-height: 20px;
+    	display: block;
+		text-align: right;
+		white-space: nowrap;
+  }
+	.content img {
+		max-width: 100%;
+  }
+  	.content {
+  		padding-left: 5%;
+  		padding-right: 5%;
+	  }
+
+	  ul#sidebar-content li {
+		list-style-type:none;
+		padding: 5px;
+		margin:auto;
+		display:block;
+		  text-align: right;
+		 white-space: nowrap;
+	}
+
+	.sectionimg {
+		width: 150px !important;
+		vertical-align:middle;
+	}
+
+	.services {
+		grid-area:services;
+		padding:10px;
+	/*	border: 1px solid rgba(120,120,120,0.5);
+		border-radius: 15px;	*/
+	}
+	
+	.about {
+		grid-area:about;
+		padding:10px;
+	/*	border: 1px solid rgba(120,120,120,0.5);
+		border-radius: 15px;	*/
+	}
+	
+	
+	.booking {
+		grid-area:booking;
+		padding:10px;
+	/*	border: 1px solid rgba(120,120,120,0.5);	
+		border-radius:15px;	*/
+	}
+	
+	
+	.contact {
+		grid-area: contact;
+		padding:10px;
+	/*	border: 1px solid rgba(120,120,120,0.5);	
+		border-radius:15px;	*/
+	}
+	
+}
+
+
+.contentbody{ 
+	display: grid;
+	grid-template-columns: auto;
+	grid-gap:10px;
+	grid-template-areas: 
+	"about"
+	"services"
+	"contact"
+	"booking";
+}
+
+.heading_text {
+	padding-bottom: 10px;
+	grid-area: heading_text;
+}
+
+.sect1{
+	grid-area: sect1;
+}
+
+.sect2{
+	grid-area: sect2;
+}
+
+.homesection {
+	display: grid;
+	grid-template-columns: auto auto;
+	grid-gap: 10px;
+	grid-template-areas:
+	"sect1 heading_text"
+	"sect1 sect2";
+}
+
+.homesection_right {
+	display: grid;
+	grid-template-columns: auto auto;
+	grid-gap: 10px;
+	grid-template-areas:
+	"heading_text sect1"
+	"sect2 sect1";
+}
+
+body {
+	background-size: cover;
+	background-repeat: no-repeat;
+	font-family: 'Oswald', sans-serif;
+}
+
+ul#footer-content li {
+	list-style-position: inside;
+	list-style-type:none;
+	display:inline;
+	padding-left:5%;
+	padding-right:5%;
+}
+
+
+
+.contentheader {
+	grid-area:contentheader;
+	padding-bottom:10px;
+}
+
+
+
+
+.services {
+	grid-area:services;
+/*	border: 1px solid rgba(120,120,120,0.5);
+	border-radius: 15px;	*/
+	padding: 60px;
+}
+
+.about {
+	grid-area:about;
+/*	border: 1px solid rgba(120,120,120,0.5);
+	border-radius: 15px;	*/
+	padding: 60px;
+}
+
+
+
+.booking {
+	grid-area:booking;
+/*	border: 1px solid rgba(120,120,120,0.5);	
+	border-radius:15px;	*/
+	padding: 60px;
+}
+
+
+.contact {
+	grid-area:contact;
+/*	border: 1px solid rgba(120,120,120,0.5);	
+	border-radius:15px;	*/
+	padding: 60px;
+}
+
+.sectionimg {
+	width:250px;
+	vertical-align:middle;
+}
+
+img {
+	max-width: 100%;
+}
+
+
+.contentbody a:link{
+	color: rgba(120,120,120,0.5);
+}
+
+.services a:link{
+	color: rgba(120,120,120,0.5);
+}
+
+a:link {
+	text-decoration: none;
+	color: #00CED1;
+}
+
+.footer a:link {
+	color: white;
+}
+
+.footer a:visited{
+	color: white;
+}
+
+.footer a:hover {
+	color: #A88B80;
+}
+
+.a:link {
+	color: rgba(64, 224, 208, 1);
+}
+
+.sidebar a:visited{
+	color: #00CED1;
+}
+
+.sidebar a:hover {
+	color: #A88B80;
+}
+
