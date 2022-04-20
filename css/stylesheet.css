@@ -1,0 +1,23 @@
+#header {
+    height: 100px;
+    background-color: green;
+}
+
+#intro {
+    height: 180px;
+    margin: auto;
+    padding: 10px;
+    width: 80%;
+}
+
+#intro1 {
+    background-color: pink;
+    height:100%;
+    border-radius: 5px;
+}
+
+#intro2 {
+    background-color: grey;
+    height:100%;
+    border-radius: 5px;
+}
